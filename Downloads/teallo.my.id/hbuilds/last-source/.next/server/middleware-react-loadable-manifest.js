@@ -1,1 +1,0 @@
-self.__REACT_LOADABLE_MANIFEST='{"app/thanks/page.js -> html2canvas":{"id":4264,"files":["static/chunks/ad2866b8.3a53275943d3b1db.js"]}}';
