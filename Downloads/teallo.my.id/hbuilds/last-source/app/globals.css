@@ -1,0 +1,132 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Production-safe base styles. These are intentionally plain CSS so the
+   page stays usable even if Tailwind utility generation is unavailable. */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; width: 100%; min-height: 100%; }
+body {
+  background: #e8e4d9;
+  color: #385144;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; }
+button, a { font: inherit; }
+
+.min-h-screen { min-height: 100vh; }
+.bg-\[\#e8e4d9\] { background-color: #e8e4d9; }
+.bg-\[\#dedbd0\] { background-color: #dedbd0; }
+.bg-\[\#385144\] { background-color: #385144; }
+.bg-\[\#c8c9c0\] { background-color: #c8c9c0; }
+.bg-white { background-color: #fff; }
+.bg-white\/95 { background-color: rgba(255,255,255,.95); }
+.bg-red-50 { background-color: #fef2f2; }
+.text-\[\#385144\] { color: #385144; }
+.text-\[\#59665c\] { color: #59665c; }
+.text-\[\#68746b\] { color: #68746b; }
+.text-red-500 { color: #ef4444; }
+.text-red-700 { color: #b91c1c; }
+.text-white { color: #fff; }
+.border { border: 1px solid #d1d5db; }
+.border-t { border-top: 1px solid #e5e7eb; }
+.shadow-sm { box-shadow: 0 1px 3px rgba(0,0,0,.08); }
+.ring-1 { box-shadow: 0 0 0 1px #e5e7eb; }
+.rounded-xl { border-radius: 12px; }
+.rounded-2xl { border-radius: 16px; }
+.rounded-full { border-radius: 9999px; }
+.overflow-hidden { overflow: hidden; }
+.relative { position: relative; }
+.fixed { position: fixed; }
+.inset-x-0 { left: 0; right: 0; }
+.bottom-0 { bottom: 0; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.flex { display: flex; }
+.inline-block { display: inline-block; }
+.flex-1 { flex: 1 1 0%; }
+.shrink-0 { flex-shrink: 0; }
+.min-w-0 { min-width: 0; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.text-center { text-align: center; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.w-full { width: 100%; }
+.w-5 { width: 20px; }
+.w-9 { width: 36px; }
+.w-24 { width: 96px; }
+.max-w-3xl { max-width: 768px; }
+.max-w-\[350px\] { max-width: 350px; }
+.h-9 { height: 36px; }
+.h-24 { height: 96px; }
+.h-auto { height: auto; }
+.object-cover { object-fit: cover; }
+.object-contain { object-fit: contain; }
+.p-4 { padding: 16px; }
+.p-8 { padding: 32px; }
+.px-4 { padding-left: 16px; padding-right: 16px; }
+.px-6 { padding-left: 24px; padding-right: 24px; }
+.py-3 { padding-top: 12px; padding-bottom: 12px; }
+.py-4 { padding-top: 16px; padding-bottom: 16px; }
+.py-8 { padding-top: 32px; padding-bottom: 32px; }
+.pb-28 { padding-bottom: 112px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-5 { margin-bottom: 20px; }
+.mb-7 { margin-bottom: 28px; }
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 12px; }
+.space-y-4 > * + * { margin-top: 16px; }
+.text-xs { font-size: 12px; line-height: 16px; }
+.text-sm { font-size: 14px; line-height: 20px; }
+.text-3xl { font-size: 30px; line-height: 36px; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.underline { text-decoration: underline; }
+.backdrop-blur { backdrop-filter: blur(8px); }
+.disabled\:opacity-30:disabled { opacity: .3; }
+.disabled\:opacity-30:disabled { cursor: not-allowed; }
+
+/* Header/logo: never allow the brand image to overflow a device viewport. */
+header > div:first-child { width: 100%; max-width: 350px; }
+header > div:first-child img { width: 100%; max-width: 350px; height: auto; object-fit: contain; }
+
+/* Product cards remain usable on narrow screens. */
+article { min-width: 0; }
+article > div:nth-child(2) { min-width: 0; }
+article h2, article p { overflow-wrap: anywhere; }
+article button { border: 0; min-width: 36px; min-height: 36px; }
+article button.border { border: 1px solid #d1d5db; background: #fff; color: #385144; }
+
+/* Sticky cart bar must respect mobile safe areas. */
+.fixed.inset-x-0.bottom-0 { padding-bottom: env(safe-area-inset-bottom); z-index: 20; }
+.fixed.inset-x-0.bottom-0 > div { width: 100%; }
+
+@media (min-width: 640px) {
+  .sm\:px-6 { padding-left: 24px; padding-right: 24px; }
+}
+
+@media (max-width: 639px) {
+  .px-4 { padding-left: 14px; padding-right: 14px; }
+  .py-8 { padding-top: 20px; padding-bottom: 20px; }
+  .p-8 { padding: 20px; }
+  .p-4 { padding: 12px; }
+  .gap-4 { gap: 12px; }
+  .h-24 { width: 76px; height: 76px; }
+  .w-24 { width: 76px; }
+  .text-3xl { font-size: 28px; line-height: 34px; }
+  header > div:first-child { max-width: 100%; }
+  header > div:first-child img { max-width: min(350px, 100%); }
+  article { align-items: flex-start; }
+  article .flex.items-center.justify-between { flex-wrap: wrap; }
+  .fixed.inset-x-0.bottom-0 > div { gap: 12px; }
+  .fixed.inset-x-0.bottom-0 a { white-space: nowrap; padding-left: 16px; padding-right: 16px; }
+}
+
+@media (max-width: 380px) {
+  .h-24, .w-24 { width: 64px; height: 64px; }
+  article .flex.items-center.justify-between { align-items: flex-end; }
+  .fixed.inset-x-0.bottom-0 > div { padding-left: 10px; padding-right: 10px; }
+  .fixed.inset-x-0.bottom-0 a { font-size: 14px; padding-left: 12px; padding-right: 12px; }
+}
